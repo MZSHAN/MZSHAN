@@ -60,3 +60,52 @@ Python Interpreter makes .pyc files platform independent(for a given python vers
 #https://hackernoon.com/i-finally-understand-static-vs-dynamic-typing-and-you-will-too-ad0c2bd0acc7
 
 
+14th August 2021
+
+
+User Space and Kernel Space (tags: OS/Memory/Systems):
+
+Pre-Note: What does it mean for a program to be executing? Program counter points to the memory adress in Text(Code) part of program. The instruction from this address is executed by the CPU. https://www.hackerearth.com/practice/notes/memory-layout-of-c-program/ 
+From wiki, https://en.wikipedia.org/wiki/Program_counter, In a simple central processing unit (CPU), the PC is a digital counter (which is the origin of the term "program counter") that may be one of several hardware registers. So basically at the architecture level, CPU just reads a register, fetches the address from there and executes. It has no idea of memory spaces.
+
+Memory gets divided into two parts. Use space and Kernel space. 
+
+Kernel space is the part of memory allocated for Kernel use. This is the part where the kernel code resides, where the kernel allocates stack heap, etc (Linux kernel is a C program, so it will follow the structure of a C program)
+
+User space is the part of memory allocated for user programs. Kernal has access to the user space. This means that kernal code can directly called user code to be executed(set intruction register to address in user space) but code executing in user space can not call code in kernel space directly. To call code in kernel space(say io, etc.), user code uses system calls. System calls is the interface exposed by the kernel for user processes. The system calls raise interrupts which transfer
+control to interrupt handlers in the kernel and continues execution later. https://unix.stackexchange.com/questions/87625/what-is-difference-between-user-space-and-kernel-space
+
+Question: If kernel can't get back control when a user process is running, how does it schedule other process? Kernel sets a timer when it tranfers execution to a user process. When the timer goes off, the interrupt handler transfers execution back to the kernel.
+https://stackoverflow.com/questions/2250391/who-schedules-the-scheduler-in-os-isnt-it-a-chicken-and-egg-scenario
+
+Connecting user and kernel space to virtual memory and user programs execution:
+
+When a physical memory is allocated into kernel space and user space, the higher addresses are reserved for the kernel and lower addresses are used for the user processes. https://unix.stackexchange.com/questions/4929/what-are-high-memory-and-low-memory-on-linux/5151#5151
+How virtual memory ties into this: Each user process "feels" that it has the entire user space for itself. This is possible due to virtual memory. So for every executing process, it' memory view is  http://www.it.uu.se/education/course/homepage/os/vt18/module-0/mips-and-mars/mips-memory-layout/ 
+Note: even if the process can view the kernel memory it has no means of executing the kernel code.
+( My hunch - 
+1. This would be ensured by the compiler. It would restrict program counter manipulation to be restricted to the text area. The binary develped by the compiler contains only the text and datasection. PC register can load address of only the text region - it can not even execute the stack or heap ideally, let alone the kernel. I am not sure how this is implemented. 
+
+2. It could also be somehow ensured that kernel code can only only be called from other kernel code or through interrupt handlers which are triggered from the user space)
+
+Sidenote: 
+How a kernel starts a user process. 
+My guess - Fork to create child process. Run exec with user binary. Exec replaces current the current execution to binary. Somehow change the mode to uer mode
+
+Doubt: 
+How and where is the Virtual File System Managed?
+virtual file system: Does Kernel program page out memory from user process.
+
+Ref:
+Good explanation of Linux Kernel Architecuture:https://developer.ibm.com/articles/l-linux-kernel/
+good illustration of thread and process memory space:  http://www.it.uu.se/education/course/homepage/os/vt18/module-4/definitions/
+
+
+Next notes:
+FUSE - File System in User Space
+vgextend and lvextend(physical and logical filessytems)
+mkfs.()ext/btfs) and mount
+symbolic linking - explain in detail(maybe also write how files are organized in the linux file system)
+markup languages - beautifying
+Cuda Programming model - https://docs.nvidia.com/cuda/cuda-c-programming-guide/
+gdb and valgrind. /proc/pid/maps and mlocate for debugging

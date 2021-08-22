@@ -1,0 +1,82 @@
+1) Coursera Self Driving cars
+2) Robot Perception - for 3d geometry. Coursera Penn Course.(Maybe the entire specialization? May not be that useful for me)
+3) Bundle adjustment implementation
+4) Linear/Integer Program solver. (branch and bound/interior points method, etc)
+5) Facebook Similarity Project
+6) Take a OS course
+6) Implement a small OS from the online course
+
+--> Python and CPP master. Master how they work together.
+
+Tips:
+I can learn anything but not everything. So prioritize, plan and persist(focus)
+1. Prioritize: Think of things you want to do. Filter out things you can do. Organize in order of impact. Clear the clutter.(When thinking about implact think of both long term and short term)
+2. Plan: Break your priority list into a to-do list. I have a habit of segmenting into the smallest tasks. Believe me, check-marking each task will give satisfaction and motivation.
+3. Persist: Believe in yourself when you did the above two. Now, just focus on achieving what you’ve decided to do. Hard work and sincerity are underrated.
+
+What I want:
+Be a senior Engineer/Tech Lead in a growing startup. I want to work on Algorithms because I enjoy learning and Visualizing maths.
+But understanding maths is not enough to lead. I have to be extremely comfortable coding up mathetical models efficiently - this would require hands on experience with maths libraries and understanding pros and cons of using each.
+I would also have to be comfortable in scaling these models - so distributed technologies knowledge will be useful. Eg. GRPC/databases, etc.
+This would mean knowing about a myriad of technologies and being up to date about how things work.
+Knowledge about all/most computer science concepts. From OS
+
+
+(ONGOING - KEEP UPDATED)
+A good engineer has a lot of tools in his reportoire - appropriate use what is required when.
+1. 3d vision
+2. NLP basics
+3. Deep Learning
+    - diff architectures
+        - yolo, cascade, faster, etc
+        - bert, transformer, etc.
+    - training
+        - picking hyperparams
+        - diff kinds of normalization
+        - losses (for data imbalance etc - loss properties - why one is used - if convex or non convex)
+        - scheduling etc
+        - types of layers: convolution, deconv, attention, etc.
+        - optimization algorithms
+    - inference
+        - model pruning
+        - weights encoding techniques - fp16, fp32
+    -  Paradigms
+        - knowledge distillation
+        - neural architecuture search
+    - Frameworks
+        - Pytorch, Tensorflow
+        - CUda
+        - Distributed training and communication libraries, eg. OpenMP and OpenMPI
+4. Reinforcement Learning
+5. Data mining/Retrieval techniques
+5. Traditional understanding of Algorithms
+    - how fast things work
+    - P vs NP
+6. Understanding of Optimization Alorithms
+    - How problems can be mapped to a class of problems(Linear, Integer, Quadratic, Convex, Non-Convex)
+    - Understanding diff Optimization Algorithms that apply to a class of problems
+7. Linux system basics
+    - How the system works
+    - different commands(helps to speed up development)
+8. Various libraries for above tasks
+9. Good understanding of programming languages
+    - CPP, python
+    - understanding of the internals of these languages - imperative for writing efficient code
+    - tools for building these make, cmake, python setup.up, poetry
+    - Coding standards
+10. Deployment ways
+    - docker
+    - CICD
+
+I WILL LEARN THESE CONCEPTS THROUGH PROJECTS AND DEMONSTRATE MY UNDERSTANDING THROUGH BLOGS
+Doing good projects requires good understanding of git
+Writing good blogs/project reports requires good understanding of LATEX(among conducting good experiments and having good plots)
+Good Projects:
+    - should solve a problem and have a story to tell
+    - so learn the basic concept and devise a problem to apply the concept to
+    - implement it and apply it to the problem
+    - Document details.
+        - Explain concept and problem.
+        - Include code
+        - include results and graphs
+        - explain results

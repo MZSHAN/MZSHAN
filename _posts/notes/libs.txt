@@ -1,0 +1,42 @@
+JIT - Just in Time Compilation
+
+In case of interpreted languages, the compiler converts the high level code to byte-code. Byte code is interpreted by the interpreter at run-time.
+Jit compilers work with the interpreter to compile frequently accessed code to machine code from byte-code. This was these chunks do not have to be interpreted multiple times during execution.
+Also, since at runtime JIT compilers have access to the architecture of the machine, they are able to produce optimized machine code(for the particular machine)
+Since initial compilation takes time, JIT compiled applications can take longer time for initial execution (but  will be faster later)
+Ref:
+https://www.geeksforgeeks.org/just-in-time-compiler/
+https://stackoverflow.com/questions/95635/what-does-a-just-in-time-jit-compiler-do (answer by Aniket Thakur, Mark Cidade)
+
+Numba - Numba is a JIT python compiler. Add a numba decorator to function to allow JIT - thus speeding up frequently accessed functions
+It is designed so that it can also be  used with Numpy arrays and functions. can create functions that broadcast over numpy arrays - like some numpy functions do
+
+LLVM - Set of modular adn reuseable compiler technologies - Open MP is a part of this
+
+OpenMP - open multi processing. This is a a set of compiler directives that helps with MULTITHREADING(not processing)
+It includes a OpenMP library that is imported in code - the directives are defined in the library
+The other component is the shared library which helps in the execution of the multiprocesing functionalities
+Great Tutorial: https://www.openmp.org/wp-content/uploads/omp-hands-on-SC08.pdf
+OpenMP is used to parallelize code over shared memory(threads) - this is helpful in case of multi-core processors
+GOMP is library - OpenMP implementation for cpp
+
+OpenMPI - Open Message Passing Interface. OpenMPI is an API(library) used to pass messages between two processes.
+It is used to PARLLIZE CODE over multiple processes - even those running on different computers(Connected by a netwrork). Thus OpenMPI is used in development of distributed systems.
+Ref: https://www.quora.com/What-is-the-difference-between-OpenMP-and-Open-MPI (answer by Grant Bartel and Mark Hahn)
+library file is libmpi.(so/a) - depending on static or shared library
+http://pawangh.blogspot.com/2014/05/mpi-vs-openmp.html
+
+OpenMPI and OpenMP may be used together in an applicatoin. OpenMPI to distibute work among different nodes and OpenMP to distribute work among diff cores on a node.
+
+BLAS - Basic LinAlg Subprogs - Specifications for linear algebra operations.(Numpy, MKL,  LAPACK are BLAS compatible)
+LAPACK - Linear Algebrea Package - software library for numerical Linear Algebra
+
+MKL - Math Kernel Library - by intel. Used for math calculatoins like FFT, Linear Algebra, etc.
+
+libc++ - cpp standard library
+
+#pragma - this is not a library. It a compiler directive for cpp. Provides information to the compiler for certain actions
+https://www.geeksforgeeks.org/pragma-directive-in-c-c/
+
+OneDNN - it is the deep learning library by Intel. Used for processing on Intel CPUs and GPUs.
+Since Intel GPUs are not commonly used(NVIDIA/CUDA), this library is used for speeding calculation on CPUs
