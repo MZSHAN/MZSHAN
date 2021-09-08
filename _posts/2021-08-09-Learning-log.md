@@ -101,6 +101,54 @@ Good explanation of Linux Kernel Architecuture:https://developer.ibm.com/article
 good illustration of thread and process memory space:  http://www.it.uu.se/education/course/homepage/os/vt18/module-4/definitions/
 
 
+23rd Aug 2021
+
+Linux groups
+- Why do they exist
+- What are they useful for?
+
+
+Packer 
+- why is it used?
+- advantages?
+
+Upstart Event system
+- advantages
+
+How upstart and packer can be used together
+
+24th Aug 2021
+
+Packer is used to create Machine Images which is basically an Operating System which can then be deployed on multiple Nodes
+Packer can create the same machine image for different platforms - thus facilitating platform independence required for cloud computing.
+Machine Image : pre-configured OS with pre-installed software
+
+So packer is used to build machine images. Now what if we want to configure the machine image on booting(to facilite further operations in a specific way)
+Packer has provisioners for that. Eg. File provisioners are used for uploading files on booting and shell provisioners are used to run shell scripts on booting.
+IMP NOTE: File provisioners can only upload files to locations which the provisioning user(not root) has permissions. This means that file provisioner keeps the file in /tmp and shell provisioner is used to run shell scripts to move files to root accessible locations.
+
+
+Upstart:
+When an ubuntu system loads, the init process(part of System V init tools) is responsible for running services(daemons) for other tasks - registering file systems, setup networks, etc.
+The init process has limitations. eg. if an additional storage device is connected to the computer, then system will have to restarted for it to be recognized. 
+    This led to the Upstart system. It is based on events and not a preset to-do list as init does. Upstart can start/stop daemons asynchronously. 
+    https://www.digitalocean.com/community/tutorials/the-upstart-event-system-what-it-is-and-how-to-use-it
+
+Difference between /etc/init and /etc/init.d:
+    /etc/init.d contains shell scripts used by SysVinit(init process) to start, step, reload, etc. a process. /etc/init is used by Upstart - it has upstart configuration files
+    https://askubuntu.com/questions/5039/what-is-the-difference-between-etc-init-and-etc-init-d
+    
+
+
+
+
+
+
+
+
+
+
+
 Next notes:
 FUSE - File System in User Space
 vgextend and lvextend(physical and logical filessytems)
@@ -109,3 +157,4 @@ symbolic linking - explain in detail(maybe also write how files are organized in
 markup languages - beautifying
 Cuda Programming model - https://docs.nvidia.com/cuda/cuda-c-programming-guide/
 gdb and valgrind. /proc/pid/maps and mlocate for debugging
+Different docker containers share drivers
